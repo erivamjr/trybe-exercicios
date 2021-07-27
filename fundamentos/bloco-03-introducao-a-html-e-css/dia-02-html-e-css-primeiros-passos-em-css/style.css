@@ -1,0 +1,30 @@
+h1{
+    font-family: sans-serif;
+    font-size: 65px;
+    color: orange;
+}
+li{
+    background-color: burlywood;
+    text-align: center;
+    text-decoration:underline;
+    line-height: 30px;
+}
+p{
+    font-size: 3em;
+    font-weight: 600;
+}
+body{
+    font-size: 16px;
+}
+.color{
+    background-color: cadetblue;
+}
+.yellow{
+    background-color: yellow;
+}
+.red{
+    background-color: red;
+}
+.brown{
+    background-color: brown;
+}
