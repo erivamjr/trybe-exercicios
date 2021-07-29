@@ -23,24 +23,24 @@ console.log(modulo);
 // 2-Faça um programa que retorne o maior de dois números. Defina no 
 //começo do programa duas variáveis com os valores que serão comparados.
 
-if (a > b){
+if (a > b) {
     console.log(a);
-}else if(a < b){
+} else if (a < b) {
     console.log(b);
-}else{
+} else {
     console.log('Os numeros são iguais!')
 }
 
 // 3-Faça um programa que retorne o maior de três números. Defina no começo 
 // do programa três variáveis com os valores que serão comparados.
 let c = 15;
-if (a > b && a > c){
+if (a > b && a > c) {
     console.log(a);
-}else if(b > a && b > c){
+} else if (b > a && b > c) {
     console.log(b);
-}else if(c > a && c > b){
+} else if (c > a && c > b) {
     console.log(c);
-}else{
+} else {
     console.log('Os numeros são iguais!');
 }
 
@@ -48,11 +48,11 @@ if (a > b && a > c){
 // "positive" se esse valor for positivo, "negative" se for negativo e 
 // "zero" caso contrário.
 
-if (a > 0){
+if (a > 0) {
     console.log('Positivo')
-}else if (a < 0){
+} else if (a < 0) {
     console.log('Negativo')
-}else{
+} else {
     console.log('Valor é 0!')
 }
 

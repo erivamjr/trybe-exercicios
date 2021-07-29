@@ -12,5 +12,3 @@ console.log(birthCity);
 console.log(birthYear);
 // Altere o valor atribuído à constante birthCity . Faça um console.log(birthCity) novamente! Você saberia explicar por que recebemos uma mensagem de erro?
 // RESPOSTA: Não da pra mudar o valor de uma constante
-
-

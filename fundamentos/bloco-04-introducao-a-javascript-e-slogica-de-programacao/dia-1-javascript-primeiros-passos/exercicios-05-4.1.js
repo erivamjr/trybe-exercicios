@@ -11,10 +11,10 @@ let ang2 = -60;
 let ang3 = 60;
 
 let somaAng = ang1 + ang2 + ang3;
-if(ang1 < 0 || ang2 < 0 || ang3 < 0){
+if (ang1 < 0 || ang2 < 0 || ang3 < 0) {
     console.log('ERRO')
-}else if(somaAng === 180){
+} else if (somaAng === 180) {
     console.log(true);
-}else{
+} else {
     console.log(false);
 }
