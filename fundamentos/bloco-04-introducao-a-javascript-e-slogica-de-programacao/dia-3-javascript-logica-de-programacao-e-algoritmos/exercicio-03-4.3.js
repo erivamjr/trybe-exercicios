@@ -20,10 +20,22 @@ n = 5
 *****
 */
 
-let n = 5;
-let caracter = '';
 
-for (let cont = 0; cont < n; cont += 1) {
-        caracter += '*';
-        console.log(caracter);
+
+
+let n = 5;
+// fazendo um for geral
+for (let i = 1; i <= n; i++) {
+        //zera a linha novamente
+        let line = '';
+        // esse for adiciona os espaços
+        for (let s = 0; s < n - i; s++) {
+                line += ' ';
+        }
+        // esse for adiciona o asteristico
+        for (let c = 0; c < i; c++) {
+                line += '*';
+        }
+        //imprime a junção dos espaços junto com asteristicos
+        console.log(line);
 }
