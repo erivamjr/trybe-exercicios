@@ -61,14 +61,23 @@
       let nohH1 = document.createElement('h1');
       nohH1.innerText = 'Exercício 5.2 - JavaScript DOM';
       document.body.appendChild(nohH1);
-      //Adicione a tag main com a classe main-content como filho da tag body ;
+      //2-Adicione a tag main com a classe main-content como filho da tag body ;
       let nohMain = document.createElement('main');
       nohMain.className = 'main-content';
       document.body.appendChild(nohMain);
-      //Adicione a tag section com a classe center-content como filho da tag main criada no passo 2;
+      //3-Adicione a tag section com a classe center-content como filho da tag main criada no passo 2;
       let nohSection = document.createElement('section');
       nohSection.className = 'center-content';
       nohMain.appendChild(nohSection);
+      //4-Adicione a tag p como filho do section criado no passo 3 e coloque algum texto;
+      let nohP = document.createElement('p');
+      nohP.innerText = 'É um fato estabelecido há muito tempo que um leitor se distrairá  vezes de propósito (humor injetado e coisas do gênero).';
+      nohSection.appendChild(nohP);
+      //5-Adicione a tag section com a classe left-content como filho da tag main criada no passo 2;
+      let nohSectionLeft = document.createElement('section');
+      nohSectionLeft.className = 'left-content';
+      nohMain.appendChild(nohSectionLeft);
+
     </script>
   </body>
 </html>
