@@ -81,6 +81,14 @@
       document.getElementsByTagName('p')[1].innerText = 'alterando para maiusculo'.toUpperCase();
     }
     func5();
+
+    function func6(){
+      let auxiliar = document.getElementsByTagName('p');
+      for(let i = 0; i<auxiliar.length; i+=1){
+        console.log(auxiliar[i]);
+      }
+    }
+    func6();
   </script>
 </body>
 
