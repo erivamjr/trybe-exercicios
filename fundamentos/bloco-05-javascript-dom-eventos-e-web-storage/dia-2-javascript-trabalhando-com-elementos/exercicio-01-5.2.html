@@ -98,7 +98,12 @@
             nohUl.appendChild(nohLi);
         }
         nohSectionRight.appendChild(nohUl);
-
+        //9-Adicione 3 tags h3 , todas sendo filhas do main criado no passo 2.
+        for (let i = 0; i < 4; i += 1) {
+            let nohH3 = document.createElement('h3');
+            nohH3.innerHTML = 'litle text';
+            nohMain.appendChild(nohH3);
+        }
 
     </script>
 </body>
