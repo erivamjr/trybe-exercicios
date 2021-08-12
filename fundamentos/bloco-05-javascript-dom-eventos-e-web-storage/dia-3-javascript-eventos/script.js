@@ -45,7 +45,7 @@ function creatButton() {
     let div = document.querySelector('.buttons-container');// recebe a div
     let botao = document.createElement('button');// criando botao
     botao.innerText = 'Feriados';// criando texto do botao
-    div.appendChild(botao);
+    div.appendChild(botao); // adicionando botao a div
     botao.id = 'btn-holiday';
 }
 
