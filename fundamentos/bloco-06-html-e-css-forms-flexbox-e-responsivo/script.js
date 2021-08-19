@@ -19,8 +19,10 @@ function mascaraData() {
     let data = document.querySelector('#data');
     let dia = data.value[0] + data.value[1];
     let mes = data.value[3] + data.value[4];
+    let ano = data.value[6] + data.value[7] + data.value[8] + data.value[9] ;
     let diaN = parseInt(dia);
     let mesN = parseInt(mes);
+    let anoN = parseInt(ano);
 
     if (diaN > 0 && diaN <= 31) {
         if (data.value.length == 2) {
@@ -28,10 +30,8 @@ function mascaraData() {
         }
 
     } else {
-        window.alert('Dia maior que 0 e menor ou igual a 31');
+        window.alert('Dia maior que 0 e menor ou igual a 31!');
     }
-
-
 
     if (data.value.length == 5) {
         if (mesN > 0 && mesN <= 12) {
@@ -40,7 +40,17 @@ function mascaraData() {
             }
 
         } else {
-            window.alert('Mês maior que 0 e menor que 12');
+            window.alert('Mês maior que 0 e menor que 12!');
+        }
+    }
+    if (data.value.length == 10) {
+        if ( ano > 0 ) {
+            if (data.value.length == 10) {
+                data.value = data.value + '.';
+            }
+
+        } else {
+            window.alert('Ano não pode ser negativo!');
         }
     }
 
