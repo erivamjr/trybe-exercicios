@@ -1,16 +1,26 @@
-*{
+* {
     padding: 0%;
     margin: 0%;
     box-sizing: content-box;
 }
 
-fieldset{
-    margin:50px 25%;
-    line-height:1.3;
-    padding:1%;
+fieldset {
+    margin: 50px 25%;
+    line-height: 1.3;
+    padding: 1%;
 }
 
-/* input{
+input {
     padding: auto;
     width: 100%;
-} */
+}
+
+input .casa .ap {
+    border: solid blue 3px;
+    width: 10%;
+}
+
+label .casa .ap {
+    border: solid blue 1px;
+    width: 10%;
+}

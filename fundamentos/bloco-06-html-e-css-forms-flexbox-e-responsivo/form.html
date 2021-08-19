@@ -10,32 +10,52 @@
 </head>
 
 <body>
-    <fieldset>
-        <label for="name">Nome: </label>
-        <input required type="text" name="name" id="name" maxlength="40">
-        <br>
-        <label for="email">e-mail: </label>
-        <input required type="email" name="email" id="email" maxlength="50">
-        <br>
-        <label for="cpf">CPF: </label>
-        <input required type="text" name="cpf" id="cpf" maxlength="11">
-        <br>
-        <label for="endereco">Endereço</label>
-        <input requered type="text" name="endereco" id="endereco">
-        <br>
-        <label for="cidade">Cidade</label>
-        <input required type="text" name="cidade" id="cidade" maxlength="28">
-        <br>
-        <label for="estado">Estado</label>
-        <select name="estado" id="estado">Estado</select>
-        <br>
-        <label for="casa">
-            <input type="radio" name="tipo" id="casa" value="casa">Casa
-        </label>
-        <label for="ap">
-            <input type="radio" name="tipo" id="ap" value="ap">Apartamento
-        </label>
-    </fieldset>
+    <div>
+        <fieldset>
+            <label for="name">Nome: </label>
+            <input required type="text" name="name" id="name" maxlength="40">
+            <br>
+            <label for="email">e-mail: </label>
+            <input required type="email" name="email" id="email" maxlength="50">
+            <br>
+            <label for="cpf">CPF: </label>
+            <input required type="text" name="cpf" id="cpf" maxlength="11">
+            <br>
+            <label for="endereco">Endereço</label>
+            <input requered type="text" name="endereco" id="endereco">
+            <br>
+            <label for="cidade">Cidade</label>
+            <input required type="text" name="cidade" id="cidade" maxlength="28">
+            <br>
+            <label for="estado">Estado</label>
+            <select name="estado" id="estado">Estado</select>
+            <br>
+            <label for="casa">
+                <input required type="radio" name="tipo" id="casa" value="casa">Casa
+            </label>
+            <label for="ap">
+                <input required type="radio" name="tipo" id="ap" value="ap">Apartamento
+            </label>
+        </fieldset>
+    </div>
+    <div>
+        <fieldset>
+            <label for="resumoCurriculo">Resumo do Curriculo: </label>
+            <textarea required type="text" name="resumoCurriculo" id="resumoCurriculo" rows="5" cols="50"
+                maxlength="1000"></textarea>
+            <br>
+            <label for="cargo">Cargo: </label>
+            <input required type="text" name="cargo" id="cargo" maxlength="40">
+            <br>
+            <label for="descricaoCargo">Descrição do Cargo</label>
+            <textarea required type="text" name="descricaoCargo" id="descricaoCargo" rows="5" cols="50"
+                maxlength="500"></textarea>
+            <label for="data"></label>
+            <label for="data">Data de Inicio: </label>
+            <input type="text" name="data" id="data" autoclompete="off" maxlength="10" onkeyup="mascaraData()">
+
+        </fieldset>
+    </div>
     <script src="/script.js"></script>
 </body>
 
