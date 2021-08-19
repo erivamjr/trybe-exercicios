@@ -47,6 +47,43 @@ function creatButton() {
     botao.innerText = 'Feriados';// criando texto do botao
     div.appendChild(botao); // adicionando botao a div
     botao.id = 'btn-holiday';
+    /*Exercicio 3 */
+    botao.className = 'holiday';
+    botao.addEventListener('click', function(){
+        alert('clicou');
+        })
+    
 }
 
 creatButton();
+
+/*Exercicio 3*/
+//let botao = document.getElementsByClassName('holiday');
+
+function ButtonHoliday(){
+    let botao = document.querySelector('#btn-holiday');
+    botao.className = 'holiday';
+
+    botao.addEventListener('click', function(){
+        alert('clicou');
+        })
+
+}
+
+    //function ButtonHoliday();
+
+/*var count = 1;
+    function setColor(btn, color) {
+        
+        var botao = document.getElementById(btn);
+        if (count == 0) {
+            botao.style.backgroundColor = "#FFFFFF"
+            count = 1;        
+        }
+        else {
+            botao.style.backgroundColor = "#7FFF00"
+            count = 0;
+        }
+    }
+
+    setColor();*/
