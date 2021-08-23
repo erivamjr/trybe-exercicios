@@ -24,6 +24,7 @@
   .menu-container {
     display: flex;
     flex-basis: 500px;
+    order: 1;
   }
   
   .menu-container ul {
@@ -39,3 +40,11 @@
     list-style: none;
     margin-right: 10px;
   }
+
+ /*  .header-container header:nth-child(1){
+      order: 2;
+  }
+
+  .header-container header:nth-child(2){
+    order: 1;
+} */
