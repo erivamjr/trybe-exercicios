@@ -10,8 +10,6 @@ for (let i in estados) {
     optionSiglas.innerText = estados[i]; // option =  array estados
     selectEstados.appendChild(optionSiglas); // inserindo filho(option) no pai (select)
 }
-// codigo base pegado do artigo do Bruno Nunes e adaptado
-//http://maozinhadaweb.blogspot.com/2007/05/mscara-de-data-com-javascript_14.html
 
 
 // && parseInt(dia) > 0 && parseInt(dia) <= 31)
