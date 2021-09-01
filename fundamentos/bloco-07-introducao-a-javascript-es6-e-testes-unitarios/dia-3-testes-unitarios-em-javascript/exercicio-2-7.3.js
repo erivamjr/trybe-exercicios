@@ -21,7 +21,8 @@ function myRemove(arr, item) {
     4-Verifique se a chamada myRemove([1, 2, 3, 4], 5) retorna o array esperado */
 const result = myRemove([1, 2, 3, 4], 3);
 const expected = [1, 2, 4];
-//A igualdade deepStrictEqual (também conhecida como estrutural), por outro lado, não testa se os operandos são o mesmo objeto, mas sim se são equivalentes. 
+/* A igualdade deepStrictEqual (também conhecida como estrutural), por outro lado, não testa se 
+os operandos são o mesmo objeto, mas sim se são equivalentes. */ 
 assert.deepStrictEqual(result, expected, 'O resultado tem que dar [1,2,4]');
 
 assert.notDeepStrictEqual(result, [1, 2, 3, 4], 'Não pode ser [1, 2, 3, 4]');
