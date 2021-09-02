@@ -16,7 +16,7 @@ const doingThings = (callback) => {
     console.log(result);
 };
 doingThings(wakeUp);
-doingThings(breakfast);
-doingThings(GoneToSleep);
 // Ela deve retornar o valor do respectivo parâmetro, neste caso:
 // Acordando!!
+doingThings(breakfast);
+doingThings(GoneToSleep);
