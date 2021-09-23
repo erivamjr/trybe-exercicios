@@ -8,13 +8,13 @@ describe('testing user existence', () => { // describe function
         // at least one positive result
         getUserName(1).then((user) => {
             expect(user).toEqual('Mark');
-        })
+        });
     });
     // inserting test of the function
     it('User does not exist', () => {
         getUserName(3).catch((error) => {
-            expect(error).toEqual(new Error(`User with ${id} not found.`))
-        })
+            expect(error).toEqual(new Error(`User with ${3} not found.`))
+        });
     });
 });
 
