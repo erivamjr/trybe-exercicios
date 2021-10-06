@@ -1,5 +1,7 @@
 import React from "react";
 
+import './App.css';
+
 const conteudos = [
     {
         conteudo: 'High Order Functions',
