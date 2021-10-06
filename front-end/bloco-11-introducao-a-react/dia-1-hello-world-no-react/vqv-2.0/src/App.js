@@ -1,9 +1,10 @@
 import React from 'react';
 // importando arquivos
-import Content from './Content'
+import Content from './Content';
 import Footer from './Footer';
 import Header from './Header';
-import './App.css';
+// importando css
+import './App.css'
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <Content/>
       <Footer/>
     </div>
-  );
+  )
 }
 
 export default App;
