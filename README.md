@@ -73,23 +73,23 @@ _"A Trybe é uma escola do futuro para qualquer pessoa que queira melhorar de vi
 
 ##### Bloco 9: Assincronicidade & Callbacks
 
-- [ ] 9-1: _JavaScript AssÃ­ncrono e Callbacks_
-- [ ] 9-2: _JavaScript Promises_
-- [ ] 9-3: _[Projeto - Carrinho de Compras]()_
+- [X] 9-1: _JavaScript AssÃ­ncrono e Callbacks_
+- [X] 9-2: _JavaScript Promises_
+- [X] 9-3: _[Projeto - Carrinho de Compras]()_
 
 ##### Bloco 10: Jest
 
-- [ ] 10-1: _Primeiros passos no Jest_
-- [ ] 10-2: _Jest - Testes AssÃ­ncronos_
-- [ ] 10-3: _Jest - Simulando comportamentos_
-- [ ] 10-4: _[Projeto - Jest AssÃ­ncrono e Mocking]()_
+- [X] 10-1: _Primeiros passos no Jest_
+- [X] 10-2: _Jest - Testes AssÃ­ncronos_
+- [X] 10-3: _Jest - Simulando comportamentos_
+- [X] 10-4: _[Projeto - Jest AssÃ­ncrono e Mocking]()_
 
 ## Desenvolvimento Front-end :hourglass_flowing_sand:
 
 ##### Bloco 11: IntroduÃ§Ã£o - React
 
-- [ ] 11-1: _'Hello, world!' no React!_
-- [ ] 11-2: _Componentes React_
+- [X] 11-1: _'Hello, world!' no React!_
+- [X] 11-2: _Componentes React_
 - [ ] 11-3: _[Projeto - Movie Cards Library]()_
 
 ##### Bloco 12: React
