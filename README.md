@@ -95,7 +95,7 @@ _"A Trybe é uma escola do futuro para qualquer pessoa que queira melhorar de vi
 ##### Bloco 12: React
 
 - [X] 12-1: _Components com estado_
-- [ ] 12-2: _Eventos e formulÃ¡rios no React_
+- [X] 12-2: _Eventos e formulÃ¡rios no React_
 - [ ] 12-3: _[Projeto - Movie Cards Library Stateful]()_
 
 ##### Bloco 13: React
