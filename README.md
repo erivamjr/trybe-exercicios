@@ -90,7 +90,7 @@ _"A Trybe é uma escola do futuro para qualquer pessoa que queira melhorar de vi
 
 - [X] 11-1: _'Hello, world!' no React!_
 - [X] 11-2: _Componentes React_
-- [ ] 11-3: _[Projeto - Movie Cards Library]()_
+- [X] 11-3: _[Projeto - Movie Cards Library]()_
 
 ##### Bloco 12: React
 
