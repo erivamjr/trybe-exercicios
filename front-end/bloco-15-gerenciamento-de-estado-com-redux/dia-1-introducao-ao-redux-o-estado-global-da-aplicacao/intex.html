@@ -31,29 +31,32 @@
       <p>Color: <span id="value">white</span></p>
       <button id="previous">Previous color</button>
       <button id="next">Next color</button>
+      <button id="radom-color">Radom Color</button>
     </div>
     <script>
-      const Redux = require('redux');
-      const previousButton = document.querySelector('#previous');
-      const nextButton = document.querySelect('#next');
+
+      const previousButton = document.getElementById('previous');
+      const nextButton = document.getElementById('next');
 
       const showColorValue = (value) => {
   const pElement = document.getElementById('value');
   pElement.innerText = value;
 };
 
-showColorValue('red');
+showColorValue('write');
 
-      previousButton.addEventListener('click', previousButtonClick);
-      nextButton.addEventListener('click', nextButtonClick);
 
-      const previousButtonClick = () => {
+const previousButtonClick = () => {
   store.dispatch({ type: PREVIOUS_COLOR });
+  console.log('Clicando no previous');
 };
 
 const nextButtonClick = () => {
   store.dispatch({ type: NEXT_COLOR });
+  console.log('Clicando no next');
 };
+previousButton.addEventListener('click', previousButtonClick);
+nextButton.addEventListener('click', nextButtonClick);
 
       const PREVIOUS_COLOR = 'PREVIOUS_COLOR';
       const NEXT_COLOR = 'NEXT_COLOR';
@@ -64,28 +67,37 @@ const nextButtonClick = () => {
       };
       // criando o reduce
       const reducer = (state = ESTADO_INICIAL, action) =>{
-        switch (ESTADO_INICIAL) {
+        switch (action.type) {
           case NEXT_COLOR:
-            if(state.index < 6){
-              return {index : state.index + 1};
-            }            
-            break;
+            if(state.index < 5){
+              return {
+                colors: ['white', 'black', 'red', 'green', 'blue', 'yellow'],
+                index : state.index + 1};
+            }       
+          
             case PREVIOUS_COLOR:
-            if(state.index >= 0){
-              return {index : state.index - 1};
-            }            
-            break;
+              if(state.index > 0){
+              return {
+                colors: ['white', 'black', 'red', 'green', 'blue', 'yellow'],
+                index : state.index - 1};
+              }            
+          
           default:
             return state;
-            break;
+          
         }
 
 }
       // criando o store
-       const store = Redux.createStore(
+      const store = Redux.createStore(
    reducer, /* preloadedState, */
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
- );
+);
+
+  store.subscribe(() => {
+  const { colors, index } = store.getState();
+  showColortValue(colors[index]);
+});
     </script>
   </body>
 </html>
