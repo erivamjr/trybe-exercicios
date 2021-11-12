@@ -33,6 +33,31 @@
       <button id="next">Next color</button>
     </div>
     <script>
+      const Redux = require('redux');
+      const previousButton = document.querySelector('#previous');
+      const nextButton = document.querySelect('#next');
+
+      const showColorValue = (value) => {
+  const pElement = document.getElementById('value');
+  pElement.innerText = value;
+};
+
+showColorValue('red');
+
+      previousButton.addEventListener('click', previousButtonClick);
+      nextButton.addEventListener('click', nextButtonClick);
+
+      const previousButtonClick = () => {
+  store.dispatch({ type: PREVIOUS_COLOR });
+};
+
+const nextButtonClick = () => {
+  store.dispatch({ type: NEXT_COLOR });
+};
+
+      const PREVIOUS_COLOR = 'PREVIOUS_COLOR';
+      const NEXT_COLOR = 'NEXT_COLOR';
+
       const ESTADO_INICIAL = {
         colors: ['white', 'black', 'red', 'green', 'blue', 'yellow'],
         index: 0,
@@ -40,17 +65,27 @@
       // criando o reduce
       const reducer = (state = ESTADO_INICIAL, action) =>{
         switch (ESTADO_INICIAL) {
-          case value:
-            
+          case NEXT_COLOR:
+            if(state.index < 6){
+              return {index : state.index + 1};
+            }            
             break;
-        
+            case PREVIOUS_COLOR:
+            if(state.index >= 0){
+              return {index : state.index - 1};
+            }            
+            break;
           default:
+            return state;
             break;
         }
 
 }
       // criando o store
-      const store = Redux.createStore(reducer);
+       const store = Redux.createStore(
+   reducer, /* preloadedState, */
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+ );
     </script>
   </body>
 </html>
