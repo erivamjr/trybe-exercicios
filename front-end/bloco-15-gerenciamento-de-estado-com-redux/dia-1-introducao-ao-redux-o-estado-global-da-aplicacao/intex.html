@@ -25,7 +25,7 @@
         width: 200px;
       }
 
-      .black {
+     /*  .black {
         background-color: #212121;
         color: #fff;
       }
@@ -53,7 +53,7 @@
       .yellow {
         background-color:yellow;
         color: #212121;
-      }
+      } */
       
     </style>
   </head>
@@ -67,19 +67,21 @@
     <script>
       const showColorValue = (value) => {
         const divColor = document.getElementById('container');
-        divColor.className = value;
+        divColor.style.backgroundColor = value;
         const pColor = document.getElementById('value');
         pColor.innerText = value;
       };
 
-      showColorValue(0)
+      showColorValue()
 
       const previousButton = document.getElementById('previous');
       const nextButton = document.getElementById('next');
+      const randomButton = document.getElementById('radom-color');
 
       // ========== ACTIONTYPES ==========
       const PREVIOUS_COLOR = 'PREVIOUS_COLOR';
       const NEXT_COLOR = 'NEXT_COLOR';
+      const RANDOM_COLOR = 'RANDOM_COLOR';
 
       // ========== ACTIONS ==========
       const previousButtonClick = () => {
@@ -92,9 +94,23 @@
         // console.log('Clicando no next');
       };
 
+      const randomButtonClick = () => {
+        store.dispatch({ type: RANDOM_COLOR });
+        // console.log('Clicando no next');
+      };
+
       previousButton.addEventListener('click', previousButtonClick);
       nextButton.addEventListener('click', nextButtonClick);
-
+      randomButton.addEventListener('click', randomButtonClick);
+      function criarCor() {
+      const oneChar = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+      let cor = '#';
+      const aleatorio = () => Math.floor(Math.random() * oneChar.length);
+      for (let i = 0; i < 6; i += 1) {
+        cor += oneChar[aleatorio()];
+      }
+      return cor;
+}
 
       const ESTADO_INICIAL = {
         colors: ['white', 'black', 'red', 'green', 'blue', 'yellow'],
@@ -105,26 +121,28 @@
       const reducer = (state = ESTADO_INICIAL, action) =>{
         switch (action.type) {
           case NEXT_COLOR:
-            if(state.index < 5){
               return {
                 ...state,
-                colors: ['white', 'black', 'red', 'green', 'blue', 'yellow'],
-                index : state.index + 1
-              };
-            }       
+                index: state.index === state.colors.length - 1 ? 0 : state.index + 1,
+              };    
             
           case PREVIOUS_COLOR:
-            if(state.index > 0){
               return {
                 ...state,
-                colors: ['white', 'black', 'red', 'green', 'blue', 'yellow'],
-                index : state.index - 1
+                index: state.index === 0 ? state.colors.length - 1 : state.index - 1,
+              }
+            
+            case RANDOM_COLOR:
+            
+              return {
+                ...state,
+                colors: [...state.colors, criarCor()],
+                index : state.colors.length,
               };
-            }            
-                  
-          default:
-            return state;                   
-          }
+                    
+            default:
+              return state;                   
+            }
                   
       }
 
