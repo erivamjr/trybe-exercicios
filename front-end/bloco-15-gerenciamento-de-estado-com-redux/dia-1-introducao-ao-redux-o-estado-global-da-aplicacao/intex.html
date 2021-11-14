@@ -24,6 +24,37 @@
         height: 50px;
         width: 200px;
       }
+
+     /*  .black {
+        background-color: #212121;
+        color: #fff;
+      }
+
+      .white {
+        background-color: #fff;
+        color: #212121;
+      }
+
+      .red {
+        background-color: red;
+        color: #fff;
+      }
+
+      .green {
+        background-color:green;
+        color: #212121;
+      }
+
+      .blue {
+        background-color: blue;
+        color: #fff;
+      }
+
+      .yellow {
+        background-color:yellow;
+        color: #212121;
+      } */
+      
     </style>
   </head>
   <body>
@@ -34,70 +65,100 @@
       <button id="radom-color">Radom Color</button>
     </div>
     <script>
+      const showColorValue = (value) => {
+        const divColor = document.getElementById('container');
+        divColor.style.backgroundColor = value;
+        const pColor = document.getElementById('value');
+        pColor.innerText = value;
+      };
+
+      showColorValue('white')
 
       const previousButton = document.getElementById('previous');
       const nextButton = document.getElementById('next');
+      const randomButton = document.getElementById('radom-color');
 
-      const showColorValue = (value) => {
-  const pElement = document.getElementById('value');
-  pElement.innerText = value;
-};
-
-showColorValue('write');
-
-
-const previousButtonClick = () => {
-  store.dispatch({ type: PREVIOUS_COLOR });
-  console.log('Clicando no previous');
-};
-
-const nextButtonClick = () => {
-  store.dispatch({ type: NEXT_COLOR });
-  console.log('Clicando no next');
-};
-previousButton.addEventListener('click', previousButtonClick);
-nextButton.addEventListener('click', nextButtonClick);
-
+      // ========== ACTIONTYPES ==========
       const PREVIOUS_COLOR = 'PREVIOUS_COLOR';
       const NEXT_COLOR = 'NEXT_COLOR';
+      const RANDOM_COLOR = 'RANDOM_COLOR';
+
+      // ========== ACTIONS ==========
+      const previousButtonClick = () => {
+        store.dispatch({ type: PREVIOUS_COLOR });
+        // console.log('Clicando no previous');
+      };
+
+      const nextButtonClick = () => {
+        store.dispatch({ type: NEXT_COLOR });
+        // console.log('Clicando no next');
+      };
+
+      const randomButtonClick = () => {
+        store.dispatch({ type: RANDOM_COLOR });
+        // console.log('Clicando no next');
+      };
+
+      previousButton.addEventListener('click', previousButtonClick);
+      nextButton.addEventListener('click', nextButtonClick);
+      randomButton.addEventListener('click', randomButtonClick);
+      function criarCor() {
+      const oneChar = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+      let cor = '#';
+      const aleatorio = () => Math.floor(Math.random() * oneChar.length);
+      for (let i = 0; i < 6; i += 1) {
+        cor += oneChar[aleatorio()];
+      }
+      return cor;
+}
 
       const ESTADO_INICIAL = {
         colors: ['white', 'black', 'red', 'green', 'blue', 'yellow'],
         index: 0,
       };
-      // criando o reduce
+
+// criando o reduce
       const reducer = (state = ESTADO_INICIAL, action) =>{
         switch (action.type) {
           case NEXT_COLOR:
-            if(state.index < 5){
               return {
-                colors: ['white', 'black', 'red', 'green', 'blue', 'yellow'],
-                index : state.index + 1};
-            }       
-          
-            case PREVIOUS_COLOR:
-              if(state.index > 0){
+                ...state,
+                index: state.index === state.colors.length - 1 ? 0 : state.index + 1,
+              };    
+            
+          case PREVIOUS_COLOR:
               return {
-                colors: ['white', 'black', 'red', 'green', 'blue', 'yellow'],
-                index : state.index - 1};
-              }            
-          
-          default:
-            return state;
-          
-        }
+                ...state,
+                index: state.index === 0 ? state.colors.length - 1 : state.index - 1,
+              }
+            
+            case RANDOM_COLOR:
+            
+              return {
+                ...state,
+                colors: [...state.colors, criarCor()],
+                index : state.colors.length,
+              };
+                    
+            default:
+              return state;                   
+            }
+                  
+      }
 
-}
-      // criando o store
+          // ========== STORE ==========
       const store = Redux.createStore(
-   reducer, /* preloadedState, */
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-);
-
-  store.subscribe(() => {
-  const { colors, index } = store.getState();
-  showColortValue(colors[index]);
-});
+        reducer, /* preloadedState, */
+        __REDUX_DEVTOOLS_EXTENSION__(),
+      );
+            
+      store.subscribe(() => {
+        const { colors, index } = store.getState();
+        // console.log(colors[index]);
+        showColorValue(colors[index]);
+        
+      });
+            
     </script>
   </body>
-</html>
+  </html>
