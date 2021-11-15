@@ -22,7 +22,7 @@
       <p>Cidade: <span id="cidade-2">São Paulo</span></p>
     </div>
     <script>
-        import { combineReducers, createStore } from 'redux';
+        const { combineReducers, createStore } = Redux;
 
       const ESTADO_INICIAL_1 = {
         nome: 'Rodrigo',
@@ -40,7 +40,7 @@
 
       const meuPrimeiroReducer = (state = ESTADO_INICIAL_1, action) => {
         switch (action.type) {
-            case 'ALTERAR_PRIMEIRO_NOME_E_SOBRENOME':
+            case 'CHANGE_NAME_ONE':
             return {
               ...state,
               nome: action.nome,
@@ -53,7 +53,7 @@
 
       const meuSegundoReducer = (state = ESTADO_INICIAL_2, action) => {
         switch (action.type) {
-            case 'ALTERAR_SEGUNDO_NOME_E_SOBRENOME':
+            case 'CHANGE_NAME_TWO':
           return {
             ...state,
             nome: action.nome,
@@ -71,6 +71,34 @@
       const store = createStore(reducerCombinado);
 
       console.log(store.getState())
+
+      window.onload = () => {
+        setTimeout(() => {
+            store.dispatch({
+            type: 'CHANGE_NAME_ONE',
+            nome: 'Bruna',
+            sobrenome: 'Santana Oliveira',
+            });
+            store.dispatch({
+            type: 'CHANGE_NAME_TWO',
+            nome: 'Rodrigo',
+            sobrenome: 'Santos da Silva',
+            });
+        }, 3000);
+      };
+
+      store.subscribe(() => {
+      const { meuPrimeiroReducer, meuSegundoReducer } = store.getState();
+      const nameOne = document.getElementById('nome-1');
+      const surnameOne = document.getElementById('sobrenome-1');
+      nameOne.innerText = meuPrimeiroReducer.nome;
+      surnameOne.innerText = meuPrimeiroReducer.sobrenome;
+
+      const nameTwo = document.getElementById('nome-2');
+      const surnameTwo = document.getElementById('sobrenome-2');      
+      nameTwo.innerText = meuSegundoReducer.nome;
+      surnameTwo.innerText = meuSegundoReducer.sobrenome;
+     });
 
     </script>
   </body>
