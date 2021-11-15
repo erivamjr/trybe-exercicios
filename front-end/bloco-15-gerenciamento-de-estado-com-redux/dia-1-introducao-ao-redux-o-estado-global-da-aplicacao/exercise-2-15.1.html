@@ -22,6 +22,8 @@
       <p>Cidade: <span id="cidade-2">São Paulo</span></p>
     </div>
     <script>
+        import { combineReducers, createStore } from 'redux';
+
       const ESTADO_INICIAL_1 = {
         nome: 'Rodrigo',
         sobrenome: 'Santos da Silva',
@@ -49,6 +51,13 @@
             return state;
         }
       };
+
+      const reducerCombinado = combineReducers({
+      meuPrimeiroReducer,
+      meuSegundoReducer});
+
+      const store = createStore(reducerCombinado);
+
     </script>
   </body>
 </html>
