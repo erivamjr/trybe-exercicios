@@ -25,9 +25,11 @@ const handleError = (errorReason) =>
 // definição da função sendMarsTemperature...
 const sendMarsTemperature = (sucess, error) =>{
     const currencyTemperature = getMarsTemperature();
-    const rateSinal = Math.random();
-    const sentSuccessfully = rateSinal < 0.6;
-    setTimeout(() => {sentSuccessfully ? sucess(currencyTemperature):error(`Sinal de WiFi fraco`)
+    const rateSinal = Math.random()*100;
+    const sentSuccessfully = rateSinal < 60;
+    console.log(rateSinal);
+    setTimeout(() => {
+        sentSuccessfully ? sucess(currencyTemperature):error(`Falha no envio da menssagem!`)
     }, messageDelay());
 }
 
