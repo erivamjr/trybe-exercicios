@@ -1,3 +1,7 @@
+/* Insira o retorno da função getUser ;
+Complete a chamada da função getUser de modo que o retorno seja: "Hello! My name is Ivan Ivanovich";
+Complete a chamada da função getUser de modo que o retorno seja: "Ivan is Russian". */
+
 const userFullName = ({ firstName, lastName }) => `Hello! My name is ${firstName} ${lastName}`;
 const userNationality = ({ firstName, nationality }) => `${firstName} is ${nationality}`;
 
