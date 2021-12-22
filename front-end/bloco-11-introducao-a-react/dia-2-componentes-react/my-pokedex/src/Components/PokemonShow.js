@@ -6,7 +6,7 @@ class PokemonShow extends React.Component{
         return (
             <section>
             {pokemons.map((pokemon, index) =>(
-        <article key={index}>
+ <article key={index}>
                 <h1>{pokemon.name}</h1>
                 <p>{pokemon.type}</p>
                 <p>{`${pokemon.averageWeight.value} ${pokemon.averageWeight.measurementUnit}`}</p>
