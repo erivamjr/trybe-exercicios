@@ -2,18 +2,18 @@ import React from "react";
 
 class Pokemon extends React.Component {
   render() {
-    const { pokemons } = this.props;
+    const { pokemon } = this.props;
     return (
-      <section>
-        {pokemons.map((pokemon, index) => (
-          <article key={index}>
+          <article className="Pokemon">
+            <div>
             <h1>{pokemon.name}</h1>
             <p>{pokemon.type}</p>
             <p>{`${pokemon.averageWeight.value} ${pokemon.averageWeight.measurementUnit}`}</p>
+            </div>
+            <div>
             <img src={pokemon.image} alt={pokemon.name} />
+            </div>
           </article>
-        ))}
-      </section>
     );
   }
 }
