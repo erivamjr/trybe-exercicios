@@ -1,15 +1,11 @@
-import PokemonShow from './Components/PokemonShow';
-import pokemons from './data';
-
 import './App.css';
+import pokemons from './ data';
+import Pokedex from './components/Pokedex';
 
 function App() {
-  
-
   return (
     <div className="App">
-      <h1>My Pokedex</h1>
-      <PokemonShow pokemons = {pokemons}/>
+      <Pokedex pokemons={pokemons}/>
     </div>
   );
 }
