@@ -102,7 +102,7 @@ _"A Trybe é uma escola do futuro para qualquer pessoa que queira melhorar de vi
 
 - [X] 13-1: _Melhorando o reuso de componentes: props.children e PropTypes_
 - [X] 13-2: _Ciclo de vida de componentes em React_
-- [ ] 13-3: _React Router_
+- [X] 13-3: _React Router_
 - [ ] 13-4: _[Projeto - Movie Cards Library CRUD]()_
 
 ##### Bloco 14: Metodologias Ãgeis
