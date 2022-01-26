@@ -19,5 +19,5 @@ ORDER BY replacement_cost DESC, title ASC
 LIMIT 100;
 /*4-Quantos clientes estão ativos e na loja 1 ? As informações podem ser encontradas na 
 tabela customer*/
-SELECT * FROM sakila.film
--- WHERE active IS NOT true;
+SELECT * FROM sakila.customer
+WHERE store_id = 1 AND active IS NOT true;
