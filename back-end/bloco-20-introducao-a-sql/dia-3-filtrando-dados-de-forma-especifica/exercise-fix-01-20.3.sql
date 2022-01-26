@@ -17,3 +17,7 @@ SELECT title, description, replacement_cost, rating FROM sakila.film
 WHERE replacement_cost >= 18.00 AND (rating = 'PG' OR rating = 'PG-13')
 ORDER BY replacement_cost DESC, title ASC
 LIMIT 100;
+/*4-Quantos clientes estão ativos e na loja 1 ? As informações podem ser encontradas na 
+tabela customer*/
+SELECT * FROM sakila.film
+-- WHERE active IS NOT true;
