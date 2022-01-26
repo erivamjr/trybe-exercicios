@@ -19,5 +19,12 @@ ORDER BY replacement_cost DESC, title ASC
 LIMIT 100;
 /*4-Quantos clientes estão ativos e na loja 1 ? As informações podem ser encontradas na 
 tabela customer*/
+SELECT COUNT(store_id = 1 AND active IS true) FROM sakila.customer;
+/*5-Mostre todos os detalhes dos clientes que não estão ativos na loja 1 . As informações 
+podem ser encontradas na tabela customer*/
 SELECT * FROM sakila.customer
 WHERE store_id = 1 AND active IS NOT true;
+USE sakila;
+-- **Solução:**
+SELECT COUNT(*) AS quantidade_de_clientes_ativos FROM customer
+WHERE active = 1 AND store_id = 1;
