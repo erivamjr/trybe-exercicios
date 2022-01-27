@@ -31,4 +31,11 @@ INSERT INTO actor (first_name, last_name) -- tabela com as colunas onde sera ins
 SELECT first_name, last_name FROM customer -- selecionando as colunas a serem copiadas
 ORDER BY customer_id 
 LIMIT 5;
-SELECT * FROM actor;
+
+/*4-Cadastre três categorias de uma vez só na tabela sakila.category .*/
+
+INSERT IGNORE INTO category (name) VALUES
+('Rafael'),
+('Amanda'),
+('Fernando');
+SELECT * FROM category;
