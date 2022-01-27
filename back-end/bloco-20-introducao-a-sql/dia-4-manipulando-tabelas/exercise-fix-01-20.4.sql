@@ -27,4 +27,8 @@ password
 
 /*3-Selecione os cinco primeiros nomes e sobrenomes da tabela 
 sakila.customer e cadastre essas pessoas como atores na tabela sakila.actor .*/
-SELECT * FROM staff;
+INSERT INTO actor (first_name, last_name) -- tabela com as colunas onde sera inserido
+SELECT first_name, last_name FROM customer -- selecionando as colunas a serem copiadas
+ORDER BY customer_id 
+LIMIT 5;
+SELECT * FROM actor;
