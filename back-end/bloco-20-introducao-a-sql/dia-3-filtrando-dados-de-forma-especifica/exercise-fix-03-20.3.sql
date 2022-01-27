@@ -22,3 +22,6 @@ ORDER BY rental_duration DESC, title;
 /*5-Monte um relatório que exiba o título e classificação dos 500 primeiros filmes 
 direcionados para as classificações indicativas G, PG e PG-13 . Os resultados devem estar 
 ordenados por título.*/
+SELECT * FROM sakila.film
+WHERE rating NOT IN ('NC-17')
+ORDER BY title LIMIT 500;
