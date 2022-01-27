@@ -18,3 +18,6 @@ SECOND(rental_date) AS Segundo
 WHERE rental_id LIKE 10330;
 /*4-Monte uma query que retorne todos os dados do pagamento feito no dia 28/07/2005 a 
 partir das 22 horas .*/
+SELECT * FROM sakila.payment
+WHERE payment_date BETWEEN '2005-07-28 22:00:00' AND '2005-07-28 22:59:59';
+-- WHERE DATE(payment_date) = '2005-07-28' AND HOUR(payment_date) >= 22;
