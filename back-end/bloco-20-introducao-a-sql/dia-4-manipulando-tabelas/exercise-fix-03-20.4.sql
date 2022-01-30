@@ -39,5 +39,7 @@ DELETE FROM sakila.film_text
 WHERE description LIKE '%saga%';
 
 /*4-Apague da maneira mais performática possível todos os registros das tabelas film_actor e film_category .*/
+TRUNCATE sakila.film_actor;
+TRUNCATE sakila.film_category;
 /*5-Inspecione todas as tabelas do banco de dados sakila e analise quais restrições ON DELETE foram impostas em cada uma. Use o Table Inspector para fazer isso (aba DDL).*/
 /*6-Exclua o banco de dados e o recrie (use as instruções no início desta aula).*/
