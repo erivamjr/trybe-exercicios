@@ -42,4 +42,6 @@ WHERE description LIKE '%saga%';
 TRUNCATE sakila.film_actor;
 TRUNCATE sakila.film_category;
 /*5-Inspecione todas as tabelas do banco de dados sakila e analise quais restrições ON DELETE foram impostas em cada uma. Use o Table Inspector para fazer isso (aba DDL).*/
+-- NÃO REQUER CÓDIGO
 /*6-Exclua o banco de dados e o recrie (use as instruções no início desta aula).*/
+-- NÃO REQUER CÓDIGO
