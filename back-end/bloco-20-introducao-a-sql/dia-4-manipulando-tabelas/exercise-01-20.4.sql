@@ -39,5 +39,12 @@ VALUES (8, 8.5, 300000000, 250000000),
 (11, 9.9, 290000000, 280000000);
 /*Exercício 6 : 
 Exclua da tabela Movies o filme "WALL-E".*/
+DELETE FROM Pixar.BoxOffice
+WHERE movie_id = 11;
+
+DELETE FROM Pixar.Movies
+WHERE title LIKE 'WALL-E';
+
+
 /*Exercício 7 : 
 Exclua da tabela Movies todos os filmes dirigidos por "Andrew Staton".*/
