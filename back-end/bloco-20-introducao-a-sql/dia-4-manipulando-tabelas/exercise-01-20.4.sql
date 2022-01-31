@@ -69,3 +69,4 @@ WHERE international_sales > 300000000 AND domestic_sales > 200000000;
 /*Exercício 10 : 
 Exclua da tabela Movies todos os filmes com menos de 100 minutos de duração.*/
 
+
