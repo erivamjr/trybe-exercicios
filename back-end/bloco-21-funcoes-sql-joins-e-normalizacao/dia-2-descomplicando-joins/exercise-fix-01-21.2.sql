@@ -28,5 +28,17 @@ INNER JOIN sakila.address AS a
 ON c.address_id = a.address_id
 WHERE first_name LIKE '%rene%' AND district LIKE 'California';
 -- 5-Exiba o nome e a quantidade de endereços dos clientes cadastrados. Ordene seus resultados por nomes de forma decrescente. Exiba somente os clientes ativos. As informações podem ser encontradas na tabela address e customer .
+SELECT c.first_name, COUNT(a.address) AS QTD
+FROM sakila.customer AS c
+INNER JOIN sakila.address AS a
+ON a.address_id = c.address_id
+WHERE c.active = 1
+GROUP BY c.customer_id
+ORDER BY
+first_name DESC;
+
+
+
+
 -- 6-Monte uma query que exiba o nome , sobrenome e a média de valor ( amount ) paga aos funcionários no ano de 2006. Use as tabelas payment e staff . Os resultados devem estar agrupados pelo nome e sobrenome do funcionário.
 -- 7-Monte uma query que exiba o id do ator , nome , id do filme e título do filme , usando as tabelas actor , film_actor e film . Dica: você precisará fazer mais de um JOIN na mesma query .
