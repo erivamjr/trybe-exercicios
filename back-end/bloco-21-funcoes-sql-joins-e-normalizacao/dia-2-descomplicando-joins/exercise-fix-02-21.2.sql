@@ -14,3 +14,10 @@ INNER JOIN
 hr.employees AS M ON E.MANAGER_ID = M.EMPLOYEE_ID
 WHERE E.DEPARTMENT_ID <> M.DEPARTMENT_ID;
 -- 2-Exiba o Nome e a quantidade de pessoas lideradas de cada gerente.
+SELECT
+CONCAT(M.FIRST_NAME, ' ', M.LAST_NAME) AS 'Nome Gerente',
+COUNT(*) AS QTD
+FROM hr.employees AS E
+INNER JOIN
+hr.employees AS M ON E.MANAGER_ID = M.EMPLOYEE_ID
+GROUP BY `Nome Gerente`;
