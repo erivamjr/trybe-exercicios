@@ -36,9 +36,12 @@ WHERE c.active = 1
 GROUP BY c.customer_id
 ORDER BY
 first_name DESC;
-
-
-
-
 -- 6-Monte uma query que exiba o nome , sobrenome e a média de valor ( amount ) paga aos funcionários no ano de 2006. Use as tabelas payment e staff . Os resultados devem estar agrupados pelo nome e sobrenome do funcionário.
+SELECT first_name, last_name, AVG(amount) AS media
+FROM sakila.staff AS s
+INNER JOIN sakila.payment AS p
+ON s.staff_id = p.staff_id
+WHERE payment_date LIKE '%2006%'
+GROUP BY first_name, last_name;
+
 -- 7-Monte uma query que exiba o id do ator , nome , id do filme e título do filme , usando as tabelas actor , film_actor e film . Dica: você precisará fazer mais de um JOIN na mesma query .
