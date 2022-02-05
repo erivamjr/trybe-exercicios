@@ -7,3 +7,5 @@
     4-Armazene o script no arquivo imc.js . */
     const imcCalculator = (weight,height) => (weight / Math.pow(height, 2)).toFixed(2);
     
+    console.log(imcCalculator(64,1.7));
+    
