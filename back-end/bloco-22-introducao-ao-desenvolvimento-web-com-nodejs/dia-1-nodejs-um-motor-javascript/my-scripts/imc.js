@@ -39,4 +39,4 @@ const imcCalculator = (weight,height) => (weight / Math.pow(height, 2)).toFixed(
     | Entre 30,0 e 34,9                         | Obesidade grau I          |
     | Entre 35,0 e 39,9                         | Obesidade grau II         |
     | 40,0 e acima                              | Obesidade graus III e IV  |`
-    console.log(imcCalculator(weight, height),table);
+    console.log(`Seu IMC é ${imcCalculator(weight, height)},${table}`);
