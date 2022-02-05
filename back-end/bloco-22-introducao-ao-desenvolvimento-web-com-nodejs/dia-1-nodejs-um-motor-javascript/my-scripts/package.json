@@ -1,0 +1,12 @@
+{
+  "name": "my-scripts",
+  "version": "1.0.0",
+  "description": "exercises of functions to learning and to fix",
+  "main": "imc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "imc":"node imc.js"
+  },
+  "author": "Jose Erivam",
+  "license": "ISC"
+}
