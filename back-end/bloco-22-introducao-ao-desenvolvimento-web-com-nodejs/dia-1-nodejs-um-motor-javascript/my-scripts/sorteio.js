@@ -22,7 +22,8 @@ const randomGenerator = () => {
         }
         condition = readline.question('Deseja jogar novamente, sim ou não? ');          
     }
-    return 'Tudo bem, Obrigado!';
+    console.log('Tudo bem, Obrigado!'); 
 };
 
-module.exports = randomGenerator();
+randomGenerator();
+module.exports = randomGenerator;

@@ -30,13 +30,33 @@ const imcCalculator = (weight,height) => (weight / Math.pow(height, 2)).toFixed(
     | Entre 30,0 e 34,9                         | Obesidade grau I          |
     | Entre 35,0 e 39,9                         | Obesidade grau II         |
     | 40,0 e acima                              | Obesidade graus III e IV  | */
-    const table = `\n
-    | IMC                                       | Situação                  |
-    | ----------------------------------------- | ------------------------- |
-    | Abaixo de 18,5                            | Abaixo do peso (magreza)  |
-    | Entre 18,5 e 24,9                         | Peso normal               |
-    | Entre 25,0 e 29,9                         | Acima do peso (sobrepeso) |
-    | Entre 30,0 e 34,9                         | Obesidade grau I          |
-    | Entre 35,0 e 39,9                         | Obesidade grau II         |
-    | 40,0 e acima                              | Obesidade graus III e IV  |`
-    console.log(`Seu IMC é ${imcCalculator(weight, height)},${table}`);
+const resultCalculator = ()=>{
+        const imc = imcCalculator(weight, height);
+
+        if(imc<18.5){
+                console.log(`Seu IMC é ${imc} | Abaixo de 18,5                            | Abaixo do peso (magreza)  |`);        
+        }
+        if(imc>=18.5 && imc < 25){
+
+                console.log(`Seu IMC é ${imc} | Entre 18,5 e 24,9                         | Peso normal               |`);
+        }
+        if(imc>=25 && imc < 30){
+
+                console.log(`Seu IMC é ${imc} | Entre 25,0 e 29,9                         | Acima do peso (sobrepeso) |`);
+        }
+        if(imc>=30 && imc < 35){
+
+                console.log(`Seu IMC é ${imc} | Entre 30,0 e 34,9                         | Obesidade grau I          |`);
+        }
+        if(imc>=35 && imc < 40){
+
+                console.log(`Seu IMC é ${imc} | Entre 35,0 e 39,9                         | Obesidade grau II         |`);
+        }
+        if(imc > 39.9){
+
+                console.log(`Seu IMC é ${imc} | 40,0 e acima                              | Obesidade graus III e IV  |`);
+        }
+          
+}
+resultCalculator();
+module.exports = resultCalculator;

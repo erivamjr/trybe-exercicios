@@ -10,4 +10,9 @@ const speedMediaCalculator = (meters,time) => (meters / time).toFixed(2);
 const meters = readline.questionInt('Quantos metros percorridos? ');
 const time = readline.questionInt('Quantos segundos? ');
 
-console.log(`Velocidade média de ${speedMediaCalculator(meters,time)} m/s`);
+const printResult = () => {
+        console.log(`Velocidade média de ${speedMediaCalculator(meters,time)} m/s`);
+}
+
+printResult();
+module.exports = printResult;
