@@ -8,12 +8,21 @@ const readline = require('readline-sync');
         5-Caso a pessoa acerte o número, exiba na tela "Parabéns, número correto!".
         6-Caso a pessoa erre o número, exiba na tela "Opa, não foi dessa vez. O número era [número sorteado]".*/
 
-const randomGenerator = (number) => {
-    const numberOfTheUser = Math.floor(Math.random() * 11) 
-    return number == numberOfTheUser 
-    ? `Parabéns, número correto!`
-    :`Opa, não foi dessa vez. O número era ${numberOfTheUser}`
+const randomGenerator = () => {
+    let condition = 's'
+    
+    while (condition.toLocaleLowerCase().includes('s')){
+    
+        const number = readline.questionInt('Insira um numero de 1 a 10? ');
+        const randomNumber = Math.floor(Math.random() * 1);
+        if(number == randomNumber){
+            console.log(`Parabéns, número correto!`); 
+        }else{
+            console.log(`Opa, não foi dessa vez. O número era ${randomNumber}`);
+        }
+        condition = readline.question('Deseja jogar novamente, sim ou não? ');          
+    }
+    return 'Tudo bem, Obrigado!';
 };
 
-const userNumber = readline.questionInt('Insira um numero de 1 a 10? ');
-console.log(randomGenerator(userNumber));
+console.log(randomGenerator());
