@@ -25,4 +25,4 @@ const randomGenerator = () => {
     return 'Tudo bem, Obrigado!';
 };
 
-console.log(randomGenerator());
+module.exports = randomGenerator();
