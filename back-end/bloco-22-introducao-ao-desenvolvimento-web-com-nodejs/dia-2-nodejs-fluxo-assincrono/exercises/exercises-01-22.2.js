@@ -7,7 +7,7 @@
 
 const multipliqueNumber = (a, b, c) => {
   const promise = new Promise((resolve, reject) => {
-    if (a.typeof !== "number" || b.typeof !== "number" || c.typeof !== "number") {
+    if (typeof (a) !== "number" || typeof (b) !== "number" || typeof (c) !== "number") {
       return reject(new Error(`Informe apenas números`));
     }
     const result = (a + b) * c;
@@ -20,6 +20,10 @@ const multipliqueNumber = (a, b, c) => {
   return promise;
 }
 
-multipliqueNumber('r', 1, 50)
+const number1 = Number(Math.floor(Math.random() * 100 + 1));
+const number2 = Number(Math.floor(Math.random() * 100 + 1));
+const number3 = Number(Math.floor(Math.random() * 100 + 1));
+console.log(number1, number2, number3);
+multipliqueNumber(number1, number2, number3)
   .then((result) => console.log(`sucesso: ${result}`))
   .catch((error) => console.log(`erro: ${error}`));
