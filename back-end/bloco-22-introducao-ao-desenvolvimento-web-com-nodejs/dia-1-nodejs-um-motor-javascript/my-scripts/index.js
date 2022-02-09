@@ -11,7 +11,8 @@ const velocidade = './velocidade';
         4-Ao digitar o número de um script e pressionar enter , o script deve ser executado.
         5-Você pode utilizar o require para executar o script em questão. */
 
-const game = readline.question('Qual app usar?...Aperte os numeros correspondentes \n| 1 - Calcular imc | 2 - Calcular velocidade | 3 - Sorteio Adivinhar Numero = ');
+const game = readline.question(`Qual app usar?...Aperte os numeros correspondentes \n
+| 1 - Calcular imc | 2 - Calcular velocidade | 3 - Sorteio Adivinhar Numero = `);
 
 if (game == 1) {
   require(imc);
