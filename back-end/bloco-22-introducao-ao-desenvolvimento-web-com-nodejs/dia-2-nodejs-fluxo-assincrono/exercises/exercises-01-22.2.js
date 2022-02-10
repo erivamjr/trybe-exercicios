@@ -7,7 +7,7 @@
 
 const multipliqueNumber = (a, b, c) => {
   const promise = new Promise((resolve, reject) => {
-    if (typeof (a) !== "number" || typeof (b) !== "number" || typeof (c) !== "number") {
+    if (typeof a !== "number" || typeof b !== "number" || typeof c !== "number") {
       return reject(new Error(`Informe apenas números`));
     }
     const result = (a + b) * c;
@@ -45,6 +45,7 @@ const main = async () => {
   try {
     const result = await multipliqueNumber(number1, number2, number3)
     console.log(result);
+
   } catch (err) {
     console.error(`Erro ao escrever o arquivo: ${err.message}`);
   }
