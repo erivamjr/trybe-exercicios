@@ -12,11 +12,12 @@ const fs = require('fs');
 
 const simpsons = './simpsons.json';
 
-const main = () => {
+const mainList = () => {
+  console.log('Exercicio - 01');
   try {
     const file = fs.readFileSync(simpsons, 'utf8');
     const data = JSON.parse(file)
-    data.forEach((el) => console.log(`${el.id} - ${el.name}`));
+    data.map((el) => console.log(`${el.id} - ${el.name}`));
 
 
   } catch (err) {
@@ -24,7 +25,22 @@ const main = () => {
     console.log(err);
   }
 }
-main();
+mainList();
+
+const mainFind = async (id) => {
+  const simpsons = './simpsons.json';
+  console.log('Exercicio - 02');
+  //Thanks for joining the GitHub Copilot waitlist! You've been added to the waitlist for the GitHub Copilot technical preview! No need to do anything else—we'll let you know when you can start using it. Just make sure your primary email address is up-to-date!
+
+  const file = fs.readFileSync(simpsons, 'utf8');
+  const data = await JSON.parse(file);
+  const findSimpson = data.find((el) => Number(el.id) === id);
+  if (!findSimpson) {
+    throw new Error('id não encontrado!')
+  }
+
+}
+mainFind(1);
 
 /* const fs = require('fs').promises;
 
