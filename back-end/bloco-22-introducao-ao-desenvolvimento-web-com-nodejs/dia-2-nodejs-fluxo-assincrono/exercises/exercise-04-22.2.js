@@ -8,15 +8,16 @@
     5-Crie uma função que adicione ao arquivo simpsonFamily.json o personagem Nelson Muntz .
     6-Crie uma função que substitua o personagem Nelson Muntz pela personagem Maggie Simpson no arquivo simpsonFamily.json .*/
 
-const fs = require('fs');
+const fs = require('fs').promises;
 
 const simpsons = './simpsons.json';
 
-const mainList = () => {
+const mainList = async () => {
   console.log('Exercicio - 01');
   try {
-    const file = fs.readFileSync(simpsons, 'utf8');
-    const data = JSON.parse(file)
+    const file = await fs.readFile(simpsons, 'utf8');
+    const data = await JSON.parse(file)
+    // console.log(data);
     data.map((el) => console.log(`${el.id} - ${el.name}`));
 
 
@@ -32,15 +33,18 @@ const mainFind = async (id) => {
   console.log('Exercicio - 02');
   //Thanks for joining the GitHub Copilot waitlist! You've been added to the waitlist for the GitHub Copilot technical preview! No need to do anything else—we'll let you know when you can start using it. Just make sure your primary email address is up-to-date!
 
-  const file = fs.readFileSync(simpsons, 'utf8');
+  const file = await fs.readFile(simpsons, 'utf8');
   const data = await JSON.parse(file);
   const findSimpson = data.find((el) => Number(el.id) === id);
   if (!findSimpson) {
     throw new Error('id não encontrado!')
   }
-
+  console.log(`${findSimpson.id} - ${findSimpson.name}`);
 }
-mainFind(1);
+
+mainFind(3);
+
+
 
 /* const fs = require('fs').promises;
 
