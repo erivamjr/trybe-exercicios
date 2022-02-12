@@ -44,15 +44,20 @@ const mainFind = async (id) => {
 
 mainFind(3);
 
+/* 4-Crie uma função que leia o arquivo simpsons.json e crie um novo arquivo, chamado simpsonFamily.json , contendo as personagens com id de 1 a 4. */
 
+const mainAdd = async () => {
 
-/* const fs = require('fs').promises;
+  try {
+    const simpsons = './simpsons.json';
 
-const simpsons = 'simpsons.json';
+    const file = await fs.readFile(simpsons, 'utf8');
+    const data = await JSON.parse(file);
+    const newFile = data.filter((el) => Number(el.id) <= 4);
+    await fs.writeFile('./simpsonFamily.json', JSON.stringify(newFile));
+  } catch (err) {
+    console.log('Deu errado boca de balde!');
+  }
+}
 
-fs.readFile(simpsons, 'utf8')
-  .then((file) => JSON.parse(file))
-  .catch((err) => {
-    console.error(`Não foi possível ler o arquivo ${nomeDoArquivo}\n Erro: ${err}`);
-    process.exit(1); // Encerra a execução do script e informa ao sistema operacional que houve um erro com código
-  }); */
+mainAdd();
