@@ -23,7 +23,6 @@ const mainList = async () => {
 
   } catch (err) {
     console.error(`Erro ao ler o arquivo: ${err.path}`);
-    console.log(err);
   }
 }
 mainList();
@@ -42,7 +41,7 @@ const mainFind = async (id) => {
   console.log(`${findSimpson.id} - ${findSimpson.name}`);
 }
 
-mainFind(3);
+//mainFind(3);
 
 /* 4-Crie uma função que leia o arquivo simpsons.json e crie um novo arquivo, chamado simpsonFamily.json , contendo as personagens com id de 1 a 4. */
 
@@ -56,8 +55,24 @@ const mainAdd = async () => {
     const newFile = data.filter((el) => Number(el.id) <= 4);
     await fs.writeFile('./simpsonFamily.json', JSON.stringify(newFile));
   } catch (err) {
-    console.log('Deu errado boca de balde!');
+    console.error(`Ops!...Aconteceu algo de errado! \n Erro ao ler o arquivo: ${err.path}`);
   }
 }
 
-mainAdd();
+// mainAdd();
+// 5-Crie uma função que adicione ao arquivo simpsonFamily.json o personagem Nelson Muntz .
+const mainWrite = async () => {
+  try {
+    const file = await fs.readFile('./simpsonFamily.json', 'utf8');
+    const data = await JSON.parse(file);
+    const newData = { id: '5', name: 'Nelson Muntz' }
+    const newWords = [...data, newData];
+    await fs.writeFile('./simpsonFamily.json', JSON.stringify(newWords));
+    console.log('linha chegada');
+    console.log('dados: ', newWords);
+  } catch (err) {
+    console.error(`Ops!...Aconteceu algo de errado! \n Erro ao ler o arquivo: ${err.path}`);
+  }
+}
+
+mainWrite();
