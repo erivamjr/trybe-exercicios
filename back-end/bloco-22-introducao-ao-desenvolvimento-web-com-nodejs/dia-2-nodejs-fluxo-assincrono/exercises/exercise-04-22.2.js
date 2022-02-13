@@ -41,7 +41,7 @@ const mainFind = async (id) => {
   console.log(`${findSimpson.id} - ${findSimpson.name}`);
 }
 
-//mainFind(3);
+mainFind(3);
 
 /* 4-Crie uma função que leia o arquivo simpsons.json e crie um novo arquivo, chamado simpsonFamily.json , contendo as personagens com id de 1 a 4. */
 
@@ -59,7 +59,7 @@ const mainAdd = async () => {
   }
 }
 
-// mainAdd();
+mainAdd();
 // 5-Crie uma função que adicione ao arquivo simpsonFamily.json o personagem Nelson Muntz .
 const mainWrite = async () => {
   try {
@@ -75,4 +75,23 @@ const mainWrite = async () => {
   }
 }
 
-mainWrite();
+//mainWrite();
+
+// 6-Crie uma função que substitua o personagem Nelson Muntz pela personagem Maggie Simpson no arquivo simpsonFamily.json .
+
+const alterName = async () => {
+  try {
+    const file = await fs.readFile('./simpsonFamily.json', 'utf8');
+    const data = await JSON.parse(file);
+    const arrayFilted = data.filter((el) => el.name !== 'Nelson Muntz');
+    const newName = { id: '5', name: 'Maggie Simpson' }
+    const newWords = [...arrayFilted, newName];
+    await fs.writeFile('./simpsonFamily.json', JSON.stringify(newWords));
+    console.log('Teste 6: ', newWords);
+
+  } catch (err) {
+    console.error(`Ops!...Aconteceu algo de errado na 6! \n Erro ao ler o arquivo: ${err.path}`);
+  }
+}
+
+alterName();
