@@ -9,5 +9,5 @@ app.listen(3001, () => {
 }); // 3-Pedir ao Express que crie um servidor HTTP e escute por requisições na porta 3001;
 
 function handleHelloWorldRequest(req, res) {
-  return res.status(200).send('Hello World!'); // 4-  Ao tratar uma requisição com método GET no caminho /hello , enviar o status HTTP 200 que significa OK e a mensagem "Hello world!".
+  return res.status(200).send('Hello world!'); // 4-  Ao tratar uma requisição com método GET no caminho /hello , enviar o status HTTP 200 que significa OK e a mensagem "Hello world!".
 }
