@@ -11,8 +11,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node exercise-fix-01-22.4.js",
-    "dev": "nodemon exercise-fix-01-22.4.js"
+    "start": "node exercise-fix-02-22.4.js",
+    "dev": "nodemon exercise-fix-02-22.4.js"
   },
   "keywords": [],
   "author": "",
