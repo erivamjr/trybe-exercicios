@@ -8,3 +8,5 @@ const connection = mysql.createPool({
   host: 'localhost',
   database: 'model_example'
 })
+
+module.exports = connection;
