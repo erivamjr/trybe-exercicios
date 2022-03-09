@@ -5,15 +5,79 @@ const app = express();
 
 app.use(express.json());
 console.log(BooksModel);
-app.get('/', (req, res) => {
-  BooksModel.findAll().then(books => {
-    console.log('teste', books);
-    res.status(200).json(books);
-  }).catch(err => {
-    console.log(err.message)
-    res.status(500).json({ message: 'Algo deu errado!' })
-  })
+app.get('/books', async (req, res) => {
+  try {
+    const books = await BooksModel.findAll({ order: [['title', 'ASC'], ['createdAt', 'ASC']] }); // Bônus: Crie uma ordenação no endpoint GET /books para ordenar por ordem alfabética e por data de criação;
 
+    return res.status(200).json(books);
+  } catch (e) {
+    console.log(e.message);
+    return res.status(500).json({ message: 'Algo deu errado' });
+  }
+
+})
+
+app.get('/books/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const books = await BooksModel.findByPk(id);
+
+    return res.status(200).json(books);
+  } catch (e) {
+    console.log(e.message);
+    return res.status(500).json({ message: 'Algo deu errado' });
+  }
+})
+
+app.post('/books', async (req, res) => {
+  try {
+    const { title, author, pageQuantity = 0 } = req.body;
+
+    const book = await BooksModel.create({
+      title,
+      author,
+      pageQuantity,
+    });
+
+    return res.status(201).json(book);
+  } catch (e) {
+    console.log(e.message);
+    return res.status(500).json({ message: 'Algo deu errado' });
+  }
+})
+
+app.put('/books/:id', async (req, res) => {
+  try {
+    const { title, author, pageQuantity = 0 } = req.body;
+    const { id } = req.params;
+
+    const result = await BooksModel.update(
+      {
+        title,
+        author,
+        pageQuantity,
+      },
+      { where: { id } },
+    );
+
+    return res.status(200).json(result);
+  } catch (err) {
+    console.log(e.message);
+    return res.status(500).json({ message: 'Algo deu errado' });
+  }
+})
+
+app.delete('/books/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const bookToDelete = await BooksModel.findByPk(id);
+    await bookToDelete.destroy();
+
+    return res.status(200).json(bookToDelete);
+  } catch (e) {
+    console.log(e.message);
+    return res.status(500).json({ message: 'Algo deu errado' });
+  }
 })
 const PORT = 3000;
 
