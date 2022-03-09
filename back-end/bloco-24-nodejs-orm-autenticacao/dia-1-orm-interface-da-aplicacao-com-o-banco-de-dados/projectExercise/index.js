@@ -63,10 +63,22 @@ app.put('/books/:id', async (req, res) => {
     return res.status(200).json(result);
   } catch (err) {
     console.log(e.message);
-    res.status(500).json({ message: 'Algo deu errado' });
+    return res.status(500).json({ message: 'Algo deu errado' });
   }
 })
 
+app.delete('/books/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const bookToDelete = await BooksModel.findByPk(id);
+    await bookToDelete.destroy();
+
+    return res.status(200).json(bookToDelete);
+  } catch (e) {
+    console.log(e.message);
+    return res.status(500).json({ message: 'Algo deu errado' });
+  }
+})
 const PORT = 3000;
 
 
