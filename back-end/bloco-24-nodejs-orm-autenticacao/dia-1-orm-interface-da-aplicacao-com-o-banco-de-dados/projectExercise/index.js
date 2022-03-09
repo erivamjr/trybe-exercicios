@@ -12,7 +12,7 @@ app.get('/books', async (req, res) => {
     return res.status(200).json(books);
   } catch (e) {
     console.log(e.message);
-    res.status(500).json({ message: 'Algo deu errado' });
+    return res.status(500).json({ message: 'Algo deu errado' });
   }
 
 })
@@ -22,13 +22,51 @@ app.get('/books/:id', async (req, res) => {
     const { id } = req.params;
     const books = await BooksModel.findByPk(id);
 
-    res.status(200);
-    res.json(books);
+    return res.status(200).json(books);
   } catch (e) {
+    console.log(e.message);
+    return res.status(500).json({ message: 'Algo deu errado' });
+  }
+})
+
+app.post('/books', async (req, res) => {
+  try {
+    const { title, author, pageQuantity = 0 } = req.body;
+
+    const book = await BooksModel.create({
+      title,
+      author,
+      pageQuantity,
+    });
+
+    return res.status(201).json(book);
+  } catch (e) {
+    console.log(e.message);
+    return res.status(500).json({ message: 'Algo deu errado' });
+  }
+})
+
+app.put('/books/:id', async (req, res) => {
+  try {
+    const { title, author, pageQuantity = 0 } = req.body;
+    const { id } = req.params;
+
+    const result = await BooksModel.update(
+      {
+        title,
+        author,
+        pageQuantity,
+      },
+      { where: { id } },
+    );
+
+    return res.status(200).json(result);
+  } catch (err) {
     console.log(e.message);
     res.status(500).json({ message: 'Algo deu errado' });
   }
 })
+
 const PORT = 3000;
 
 
