@@ -69,6 +69,5 @@ const tv2 = new Tv('Philco', 65, 1980, ['HDMI', 'Ethernet', 'USB']);
 console.log(tv1.brand, tv1.size, tv1.resolution, tv1.connections);
 console.log(tv2.brand, tv2.size, tv2.resolution, tv2.connections);
 
-
 tv1.turnOn();
 tv2.turnOn();
