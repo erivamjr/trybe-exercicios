@@ -1,39 +1,4 @@
-// class Person {
-//   name: string;
-//   height: number;
-//   weight: number;
-
-//   constructor(n: string, h: number, w: number) {
-//     console.log(`Creating person ${n}`);
-//     this.name = n;
-//     this.height = h;
-//     this.weight = w;
-//   }
-
-//   sleep() {
-//     console.log(`${this.name}: zzzzzzz`);
-//   }
-// }
-
-// const p1 = new Person('Maria', 171, 58);
-// const p2 = new Person('João', 175, 66);
-// console.log(p1.name, p1.height, p1.weight);
-// console.log(p2.name, p2.height, p2.weight);
-// p1.sleep();
-// p2.sleep();
-
 /*
-Saída:
-Creating person Maria
-Creating person João
-Maria 171 58
-João 175 66
-Maria: zzzzzzz
-João: zzzzzzz
-*/
-
-
-/* 
 Utilizando o que você já aprendeu até aqui, faça os seguintes exercícios:
 1 - Crie uma classe chamada Tv, com os atributos:
 - brand : marca da TV;
@@ -45,7 +10,7 @@ connectedTo: conexão atual Este atributo não precisa ser inicializado no const
 3 - Instancie um objeto a partir da classe Tv, chame o método turnOn para imprimir seus atributos.
  */
 
-class Tv {
+/* class Tv {
   brand: string;
   size: number;
   resolution: number;
@@ -70,4 +35,49 @@ console.log(tv1.brand, tv1.size, tv1.resolution, tv1.connections);
 console.log(tv2.brand, tv2.size, tv2.resolution, tv2.connections);
 
 tv1.turnOn();
-tv2.turnOn();
+tv2.turnOn(); */
+
+// Utilizando o mesmo código dos exercícios de fixação anteriores:
+// 5 - Altere a visibilidade dos atributos definidos na classe Tv para private .
+// 6 - Crie um método getter e um setter para o atributo _connectedTo , da classe Tv.
+//    * O setter deverá verificar se o valor definido está entre as conexões disponíveis ( _connections ) e:
+//    * Em caso positivo, definir este valor para o atributo _connectedTo ;
+//    * Em caso negativo, imprimir no console a mensagem "Sorry, connection unavailable!"
+// 7 - Defina um valor para o atributo _connectedTo por meio do método setter criado e imprima seu valor.
+
+class Tv {
+  private _brand: string;
+  private _size: number;
+  private _resolution: number;
+  private _connections: string[];
+  private _connectedTo: string;
+
+  constructor(brand: string, size: number, resolution: number, connectedTo: string) {
+    this._brand = brand;
+    this._size = size;
+    this._resolution = resolution;
+    this._connections = ['HDMI', 'WIFI', 'USB', 'BLUETOOTH', 'ETHERNET', '3G', '4G', '5G'];
+    this._connectedTo = connectedTo;
+  }
+
+  turnOn() {
+    console.log(`Marca: ${this._brand} Polegadas: ${this._size} Rsolução: ${this._resolution} Conexões: ${this._connectedTo}`);
+  }
+
+  get connectedTo(): string {
+    return this._connectedTo;
+  }
+
+  set connectedTo(value: string) {
+    if (this._connections.includes(value)) {
+      this._connectedTo = value;
+    } else {
+      console.log('Sorry, connection unavailable!');
+    }
+  }
+}
+
+const tv1 = new Tv('Sony', 40, 1080, 'REDE')
+const tv2 = new Tv('Sansung', 32, 1080, 'USB')
+
+tv1.connectedTo = "WIfI";
